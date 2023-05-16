@@ -1,5 +1,6 @@
 <?php
     namespace banco_dados;
+    use Exception;
 
     class Database_PDO
     {
@@ -10,13 +11,18 @@
         private $dsn = "";
 
         public function __construct(){
-            $dsn = "mysql:dbname=$this->dbname;host=localhost";
+            $this->dsn = "mysql:dbname=$this->dbname;host=localhost";
             try {
                 $this->pdo = new \PDO($this->dsn, $this->username, $this->userpass);
             } catch (Exception $e) {
                 echo "Houve um erro com a conexão com o banco de dados";
                 exit();
             }
+        }
+
+        public function getPDO()
+        {
+            return $this->pdo;
         }
 
         public function setDBName($dbname)

@@ -5,8 +5,8 @@
 
     class Passageiro extends Usuario
     {
-        public function __construct($nome, $email, $cpf)
+        public function __construct($nome, $email, $cpf, $id)
         {
-            parent::__construct($nome, $email, $cpf);
+            parent::__construct($nome, $email, $cpf, $id);
         }
     }

@@ -3,15 +3,13 @@
 
     class Terminal
     {
-        private Rodoviaria $rodoviaria;
         private $nome;
         private $id;
 
-        public function __construct($nome, $rodoviaria)
+        public function __construct($nome, $id)
         {
             $this->nome = $nome;
-            $this->rodoviaria = $rodoviaria;
-            $this->id = uniqid();
+            $this->id = $id;
         }
 
         public function getNome()
@@ -22,16 +20,6 @@
         public function setNome($v)
         {
             $this->nome = $v;
-        }
-
-        public function getRodoviaria()
-        {
-            return $this->rodoviaria;
-        }
-
-        public function setRodoviaria($v)
-        {
-            $this->rodoviaria = $v;
         }
 
         public function getId()

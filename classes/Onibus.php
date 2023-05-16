@@ -10,10 +10,11 @@
         private $hora_chegada;// hora de chegada formato hh:mm::ss
         private $local_partida; // local de partida
         private $local_destino; // local de destino
-        private $terminal; //Terminal associado ao Onibus
+        private $terminal_id; //Terminal associado ao Onibus
         private $id;
+        private $terminal_object = [];
 
-        function __construct(String $empresa, String $linha, int $duracao, String $hora_saida, String $hora_chegada, String $local_partida, String $local_destino, Terminal $terminal)
+        function __construct(String $empresa, String $linha, int $duracao, String $hora_saida, String $hora_chegada, String $local_partida, String $local_destino, int $terminal_id, int $id)
         {
             $this->empresa = $empresa;
             $this->linha = $linha;
@@ -22,8 +23,8 @@
             $this->hora_chegada = $hora_chegada;
             $this->local_partida = $local_partida;
             $this->local_destino = $local_destino;
-            $this->terminal = $terminal;
-            $this->id = uniqid();
+            $this->terminal_id = $terminal_id;
+            $this->id = $id;
         }
 
         public function setEmpresa(String $v)
@@ -107,10 +108,18 @@
         }
 
         public function getTerminal(){
-            return $this->terminal;
+            return $this->terminal_id;
         }
 
         public function setTerminal($v){
-            $this->terminal = $v;
+            $this->terminal_id = $v;
+        }
+
+        public function getTerminalObj(){
+            return $this->terminal_object;
+        }
+
+        public function setTerminalObj($v){
+            $this->terminal_object = $v;
         }
     }

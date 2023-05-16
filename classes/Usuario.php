@@ -8,15 +8,15 @@
         private $id;
         private $cpf;
 
-        public function __construct($nome, $email, $cpf)
+        public function __construct($nome, $email, $cpf, $id)
         {
             $this->nome = $nome;
             $this->email = $email;
-            $this->id = uniqid();
+            $this->id =  $id;
             $this->cpf = $cpf;
         }
 
-        public function  getNome()
+        public function getNome()
         {
             return $this->nome;
         }
