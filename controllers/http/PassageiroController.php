@@ -20,7 +20,7 @@
                     $id = $d->getId();
                     header("Location: " . getLink("$this->viewDirectory/editar/$id"));
                 } else {
-                    $this->show_flash_message("\n Falha");
+                    $this->set_flash_message("\n Falha");
                 }
             }
         }
@@ -34,10 +34,10 @@
             } else if($_SERVER["REQUEST_METHOD"] === "POST") {
                 $d = (new Passageiro_DAO())->update($_POST, 'id',  $id);
                 if ($d) {
-                    $this->show_flash_message("\n Sucesso ao editar conta");
+                    $this->set_flash_message("\n Sucesso ao editar conta");
                     $this->view("/$this->viewDirectory/editar", $d);
                 } else {
-                    $this->show_flash_message("\n Falha");
+                    $this->set_flash_message("\n Falha");
                     $this->view("/$this->viewDirectory/cadastrar", $d);
                 }
             }
@@ -49,9 +49,9 @@
             if ($_SERVER["REQUEST_METHOD"] === "GET") {
                 $d = (new Passageiro_DAO())->delete("id", $id);
                 if ($d) {
-                    $this->show_flash_message("\n Sucesso ao remover conta");
+                    $this->set_flash_message("\n Sucesso ao remover conta");
                 } else {
-                    $this->show_flash_message("\n Falha");
+                    $this->set_flash_message("\n Falha");
                 }
             }
         }
@@ -64,7 +64,7 @@
                 if ($d) {
                     $this->view("/$this->viewDirectory/mostrar", $d);
                 } else {
-                    $this->show_flash_message("\n Falha");
+                    $this->set_flash_message("\n Falha");
                 }
             }
         }

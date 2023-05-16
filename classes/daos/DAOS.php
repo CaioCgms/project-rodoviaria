@@ -50,7 +50,7 @@
                 $key_value = 1;
             }
 
-            $pdoPrepared = $this->getPDO()->prepare("SELECT {$cols} FROM {$this->getTable()} WHERE $key = :$key");
+            $pdoPrepared = $this->getPDO()->prepare("SELECT {$cols} FROM {$this->getTable()} WHERE $key = :$key ORDER BY $key");
             $pdoPrepared->bindParam(":$key", $key_value);
             $pdoPrepared -> execute();
             $data = $pdoPrepared -> fetchAll(\PDO::FETCH_ASSOC);

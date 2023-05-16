@@ -72,8 +72,11 @@
                         $classObject -> $action($param);
                         $sysView = $classObject;
                     }catch(Exception $e){
-                        echo var_dump($e);
-                        die();
+                        if ($classObject) {
+                            $sysView = $classObject;
+                            $sysView -> set_flash_message($e->getMessage());
+                            echo "<a  class='btn light' href='" . getLink('') . "'>Voltar à Home</a>";
+                        }
                     }
                 } else {
                     die("Rota não encontrada! - Erro 404");
@@ -98,7 +101,10 @@
     </head>
     <body>
         <div class="app">
-            <?= $sysView -> getView(); ?>
+            <div class="flash-alert-box">
+                <?php if($sysView) echo $sysView -> show_flash_message(); ?>
+            </div>
+            <?php if($sysView) echo $sysView -> getView(); ?>
         </div>
     </body>
 </html>

@@ -33,11 +33,10 @@
             if ($this->viewContent) {
                 $data = $this->viewData;
                 include_once("shared/views/$this->viewContent.php");
-                echo $this->show_flash_message();
             }
         }
 
-        public function flash_message($msg)
+        public function set_flash_message($msg)
         {
             $this->flashMsg = $msg;
         }

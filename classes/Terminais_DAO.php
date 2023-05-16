@@ -15,7 +15,7 @@
 
         public function selectAll($cols = "*", $key, $key_value)
         {
-            $data = parent::selectAll("*", 1, 1);
+            $data = parent::selectAll("*", $key, $key_value);
             $terminais = [];
             foreach ($data as $d) {
                 $terminais[] = new Terminal($d['nome'], $d['id']);
@@ -27,7 +27,11 @@
         public function select($cols = "*", $key, $key_value)
         {
             $data = parent::select($cols, $key, $key_value);
-            $passageiro = new Terminal($data['nome'], $data['id']);
-            return $passageiro;
+            if (isset($data['id'])) {
+                $passageiro = new Terminal($data['nome'], $data['id']);
+                return $passageiro;
+            } else {
+                return new Terminal("", 0);
+            }
         }
     }

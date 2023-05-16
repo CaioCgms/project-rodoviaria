@@ -1,6 +1,6 @@
 <div class="box home-page">
     <div class="box-header">
-        <h2 class="title">
+        <h2 class="title" style="margin-right: auto">
             Caios's Rodoviária
         </h2>
     </div>

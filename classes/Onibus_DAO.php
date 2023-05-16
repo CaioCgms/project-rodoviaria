@@ -16,7 +16,7 @@
 
         public function selectAll($cols = "*", $key, $key_value)
         {
-            $data = parent::selectAll("*", 1, 1);
+            $data = parent::selectAll("*", $key, $key_value);
             $passageiros = [];
             foreach ($data as $d) {
                 $terminal = ((new Terminal_DAO())->select("*", "id", $d["terminal_id"]));
@@ -41,19 +41,23 @@
         {
             $data = parent::select($cols, $key, $key_value);
             $terminal = ((new Terminal_DAO())->select("*", "id", $data["terminal_id"]));
-            $passageiro = new Onibus(
-                $data["empresa"],
-                $data["linha"],
-                $data["duracao"],
-                $data["hora_saida"],
-                $data["hora_chegada"],
-                $data["local_partida"],
-                $data["local_destino"],
-                $data["terminal_id"],
-                $data["id"],
-            );
-            $passageiro->setTerminalObj($terminal);
-            return $passageiro;
+            if( isset($data["id"]) ) {
+                $passageiro = new Onibus(
+                    $data["empresa"],
+                    $data["linha"],
+                    $data["duracao"],
+                    $data["hora_saida"],
+                    $data["hora_chegada"],
+                    $data["local_partida"],
+                    $data["local_destino"],
+                    $data["terminal_id"],
+                    $data["id"],
+                );
+                $passageiro->setTerminalObj($terminal);
+                return $passageiro;
+            } else {
+                return new Onibus("", "", 0, "", "", "", "", 0, 0);
+            }
         }
     }
     

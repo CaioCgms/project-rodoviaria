@@ -81,6 +81,7 @@
                     <div class="actions">
                         <a class="btn edit" href="<?= getLink("onibus/editar/" . $d->getId())?>">Editar</a>
                         <a class="btn remove" href="<?= getLink("onibus/remover/" . $d->getId())?>">Remover</a>
+                        <a class="btn passagem add" href="<?= getLink("Passagem/cadastrar/" . $d->getId()); ?>">Cadastrar Passagem</a>
                     </div>
                 </div>
             <?php } ?>

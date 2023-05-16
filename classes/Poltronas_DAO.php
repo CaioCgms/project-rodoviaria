@@ -7,7 +7,7 @@
     {
         public function __construct()
         {
-            // Defino que a tabela a ser usada é de usuários
+            // Defino que a tabela a ser usada é de poltronas
             $this->setTable("poltronas");
             // Constrói o seu 'pai'
             parent::__construct();
@@ -15,20 +15,25 @@
 
         public function selectAll($cols = "*", $key, $key_value)
         {
-            $data = parent::selectAll("*", 1, 1);
-            $Poltronass = [];
+            $data = parent::selectAll("*", $key, $key_value);
+            $poltronas = [];
+
             foreach ($data as $d) {
-                $Poltronass[] = new Poltronas($d['onibus_id'], $d['id'], $d['numeracao'],  $d['passagem_id'], $d["status"]);
+                $poltronas[] = new Poltronas($d['onibus_id'], $d['id'], $d['numeracao'],  $d['passagem_id'], $d["status"]);
             }
 
-            return $Poltronass;
+            return $poltronas;
         }
 
         public function select($cols = "*", $key, $key_value)
         {
             $data = parent::select($cols, $key, $key_value);
-            $Poltronas = new Poltronas($data['onibus_id'], $data['id'], $data['numeracao'],  $data['passagem_id'], $data["status"]);
-            return $Poltronas;
+            if (isset($data['id'])) {
+                $poltronas = new Poltronas($data['onibus_id'], $data['id'], $data['numeracao'],  $data['passagem_id'], $data["status"]);
+                return $poltronas;
+            } else {
+                return new Poltronas(0, "", 0, 0, false);
+            }
         }
     }
     

@@ -23,7 +23,7 @@ use controllers\http\Controller;
                     $id = $d->getId();
                     header("Location: " . getLink("$this->viewDirectory/editar/$id"));
                 } else {
-                    $this->show_flash_message("Falha");
+                    $this->set_flash_message("Falha");
                 }
             }
         }
@@ -43,10 +43,10 @@ use controllers\http\Controller;
                 $d['terminais'] = (new Terminal_DAO())->selectAll("*", 1, 1) ?? [];
                 $d['onibus'] = $onibus;
                 if ($d) {
-                    $this->show_flash_message("Sucesso ao editar conta");
+                    $this->set_flash_message("Sucesso ao editar conta");
                     $this->view("/$this->viewDirectory/editar", $d);
                 } else {
-                    $this->show_flash_message("Falha");
+                    $this->set_flash_message("Falha");
                     $this->view("/$this->viewDirectory/cadastrar", $d);
                 }
             }
@@ -58,9 +58,9 @@ use controllers\http\Controller;
             if ($_SERVER["REQUEST_METHOD"] === "GET") {
                 $d = (new Onibus_DAO())->delete("id", $id);
                 if ($d) {
-                    $this->show_flash_message("Sucesso ao remover conta");
+                    $this->set_flash_message("Sucesso ao remover conta");
                 } else {
-                    $this->show_flash_message("Falha");
+                    $this->set_flash_message("Falha");
                 }
             }
         }
@@ -73,7 +73,7 @@ use controllers\http\Controller;
                 if ($d) {
                     $this->view("/$this->viewDirectory/mostrar", $d);
                 } else {
-                    $this->show_flash_message("Falha");
+                    $this->set_flash_message("Falha");
                 }
             }
         }

@@ -1,6 +1,13 @@
 *{
-    background-color: #fafafa;
     box-sizing: border-box;
+
+    --bcg: #fdfdfd;
+    --text-color: rgb(36, 36, 36);
+}
+
+html,
+body{
+    background-color: var(--bcg);
 }
 
 .d-flex{
@@ -17,13 +24,14 @@
 
 .box{
     padding: 1rem 1rem;
-    border: 1px solid red;
+    border: 1px solid var(--text-color);
 }
 
 .box .title{
     margin: 0 0;
     padding: 0 0;
     margin-bottom: 0.8rem;
+    color: var(--text-color);
 }
 
 .box-header{
@@ -31,6 +39,14 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    padding: 1rem 0;
+    background-color: var(--bcg);
+    margin-bottom: 1rem;
+    border-bottom:1px solid ;
+}
+
+.box-header .title{
+    margin-left: auto;
 }
 
 .box-header .header-actions{
@@ -47,30 +63,45 @@
     flex-direction: column;
 }
 
-.items .item{
+.item{
     width: 100%;
-    padding: 0.4rem 0.4rem;
-    border: 1px solid rgba(99, 99, 99, 0.2);
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    margin-bottom: 0.6rem;
+    max-width: 800px;
+    padding: 0.8rem 0.8rem;
+    border-bottom: 1px solid rgba(99, 99, 99, 0.8);
 }
 
-.items .item .item-h{
+.item:nth-child(2n + 1){
+    background-color: rgb(223, 223, 223);
+}
+
+.item .item-h{
+    margin-right:5px;
     display: flex;
+    padding: 0.1rem 0.1rem;
     flex-direction: row;
 }
 
-.items .item .label{
-    width: 50px;
-    padding-right: 0.14rem;
-    color: rgb(39, 39, 39);
+.item .label{
+    min-width: 50px;
+    padding-right: 0.24rem;
+    color: rgb(61, 61, 61);
 }
 
-.items .item .value{
-    color: rgb(83, 83, 83);
+.item .value{
+    color: var(--text-color);
 }
-.items .item .actions{
-    padding-top: 0.58rem;
+
+.item .actions{
+    padding-top: 1.58rem;
+}
+
+.item .combo-item{
+    /* justify-content: space-around; */
+}
+
+.item .combo-item .item-h:not(:first-child){
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Btns */
@@ -79,7 +110,6 @@
     padding: 0.2rem 0.6rem;
     margin: 3px 3px 0 0;
     text-decoration: none;
-    border-radius: 1rem;
     font-size: 0.96rem;
     border:none;
     cursor: pointer;
@@ -151,4 +181,25 @@
 
 .poltrona.indisponivel{
     background-color: red;
+}
+
+.onibus-info{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 800px;
+}
+
+.onibus-info .item-h{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.flash-msg{
+    margin: 1rem auto;
+    max-width: 300px;
+    padding: 1rem 1rem;
+    border: 1px solid;
+    text-align: center;
 }

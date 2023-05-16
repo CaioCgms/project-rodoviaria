@@ -21,7 +21,7 @@
             $this->terminal_id = $terminal_id;
             $this->id = $id;
             $this->poltrona_id = $poltrona_id;
-            $this->id = uniqid();
+            $this->id = $id;
             $this->data_criacao = $data_criacao;
         }
 
