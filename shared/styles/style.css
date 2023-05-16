@@ -1,0 +1,154 @@
+*{
+    background-color: #fafafa;
+    box-sizing: border-box;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.flex-col{
+    flex-direction: column;
+}
+
+.flex-rpw{
+    flex-direction: row;
+}
+
+.box{
+    padding: 1rem 1rem;
+    border: 1px solid red;
+}
+
+.box .title{
+    margin: 0 0;
+    padding: 0 0;
+    margin-bottom: 0.8rem;
+}
+
+.box-header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.box-header .header-actions{
+    display: flex;
+    align-items: center;
+}
+
+.box-content{
+    width: 100%;
+}
+
+.items{
+    display: flex;
+    flex-direction: column;
+}
+
+.items .item{
+    width: 100%;
+    padding: 0.4rem 0.4rem;
+    border: 1px solid rgba(99, 99, 99, 0.2);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-bottom: 0.6rem;
+}
+
+.items .item .item-h{
+    display: flex;
+    flex-direction: row;
+}
+
+.items .item .label{
+    width: 50px;
+    padding-right: 0.14rem;
+    color: rgb(39, 39, 39);
+}
+
+.items .item .value{
+    color: rgb(83, 83, 83);
+}
+.items .item .actions{
+    padding-top: 0.58rem;
+}
+
+/* Btns */
+
+.btn{
+    padding: 0.2rem 0.6rem;
+    margin: 3px 3px 0 0;
+    text-decoration: none;
+    border-radius: 1rem;
+    font-size: 0.96rem;
+    border:none;
+    cursor: pointer;
+}
+
+.btn.edit{
+    color: #fff;
+    background-color: rgb(53, 106, 141);
+}
+
+.btn.remove{
+    background-color: rgb(224, 144, 24);
+    color: #fff;
+}
+
+.btn.add{
+    background-color: rgb(19, 168, 6);
+    color: #fff;
+}
+
+.btn.light{
+    background-color: rgb(59, 59, 59);
+    color: #fff;
+}
+
+/* Margins */
+.ml-auto{
+    margin-left: auto;
+}
+
+.mr-auto{
+    margin-right: auto;
+}
+
+.mt-auto{
+    margin-top: auto;
+}
+
+.mb-auto{
+    margin-bottom: auto;
+}
+
+/* Form */
+.custom-input{
+    max-width: 250px;
+    display: flex;
+    margin-bottom: 0.6rem;
+    flex-direction: column;
+}
+
+.custom-input input,
+.custom-input select{
+    border: 1px solid rgba(99, 99, 99, 0.2);
+    height: 30px;
+}
+
+/* Poltrona */
+.poltrona{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 3px 3px;
+    background-color: green;
+}
+
+.poltrona.selecionado{
+    background-color: rgb(25, 107, 201);
+}
+
+.poltrona.indisponivel{
+    background-color: red;
+}
